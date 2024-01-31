@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// default route
 Route::get('/', function () {
     return view('welcome');
+});
+
+// custom route
+Route::get('/about', function () {
+    return view('about', [
+        "name" => "Franky",
+        "email" => "baboon@student.ac.id"
+    ]);
 });

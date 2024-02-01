@@ -22,18 +22,13 @@ class Post
     // use self because the array is static
     public static function all()
     {
-        return self::$blog_posts;
+        return collect(self::$blog_posts);
     }
 
+    // collection -> https://laravel.com/docs/8.x/collections#main-content
     public static function find($slug)
     {
-        $posts = self::$blog_posts;
-        $post = [];
-        foreach ($posts as $p) {
-            if ($p["slug"] === $slug) {
-                $post = $p;
-            }
-        }
-        return $post;
+        $posts = static::all();
+        return $posts->firstWhere('slug', $slug);
     }
 }

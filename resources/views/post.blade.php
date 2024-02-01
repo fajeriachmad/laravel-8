@@ -2,10 +2,8 @@
 
 @section('section')
     <article>
-        <h1>
-            <p>{{ $post->title }}</p>
-        </h1>
-        <h2>By: {{ $post->author }}</h2>
+        <h1>{{ $post->title }}</h1>
+        <h3>By: {{ $post->author }} in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></h2>
         {{-- use {!! ... !!} instead of {{ ... }} to un-skip html elements inside the object --}}
         {!! $post->body !!}
     </article>

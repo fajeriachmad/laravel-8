@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// custom route
+// custom routes
+Route::get('/home', function () {
+    return view('home', [
+        "title" => "Home"
+    ]);
+});
 Route::get('/about', function () {
     return view('about', [
         "name" => "Franky",
-        "email" => "baboon@student.ac.id"
+        "email" => "baboon@student.ac.id",
+        "title" => "About"
+    ]);
+});
+Route::get('/blog', function () {
+    return view('posts', [
+        "title" => "Posts",
+        "posts" => Post::all()
+    ]);
+});
+
+// single post
+Route::get('/posts/{slug}', function ($slug) {
+    return view('post', [
+        "title" => "Single Post",
+        "post" => Post::find($slug)
     ]);
 });

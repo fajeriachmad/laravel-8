@@ -18,4 +18,14 @@ class Post extends Model
 
     // $guarded is used to prevent user to fill the declared field
     protected $guarded = ['id'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

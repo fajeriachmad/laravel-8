@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -20,30 +21,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// custom routes
+// home route
 Route::get('/home', function () {
     return view('home', [
-        "title" => "Home"
-    ]);
-});
-Route::get('/about', function () {
-    return view('about', [
-        "name" => "Franky",
-        "email" => "baboon@student.ac.id",
-        "title" => "About"
-    ]);
-});
-Route::get('/blog', function () {
-    return view('posts', [
-        "title" => "Posts",
-        "posts" => Post::all()
+        'title' => 'Home'
     ]);
 });
 
-// single post
-Route::get('/posts/{slug}', function ($slug) {
-    return view('post', [
-        "title" => "Single Post",
-        "post" => Post::find($slug)
+// about route
+Route::get('/about', function () {
+    return view('about', [
+        'name' => 'Franky',
+        'email' => 'baboon@student.ac.id',
+        'title' => 'About'
     ]);
 });
+
+// posts route
+Route::get('/posts', [PostController::class, 'index']);
+
+// single post route
+Route::get('/posts/{slug}', [PostController::class, 'show']);

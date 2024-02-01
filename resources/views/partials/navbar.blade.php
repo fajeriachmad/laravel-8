@@ -14,7 +14,7 @@
 					<a class="nav-link" href="/about" data-href="http://e-store.test/about">About</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/blog" data-href="http://e-store.test/blog">Blog</a>
+					<a class="nav-link" href="/posts" data-href="http://e-store.test/posts">Blog</a>
 				</li>
 			</ul>
 		</div>

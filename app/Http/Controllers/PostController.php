@@ -11,7 +11,9 @@ class PostController extends Controller
     {
         return view('posts', [
             "title" => "Posts",
-            "posts" => Post::all()
+            // use ModelName::latest()->get() to sort the data in descending order based on the created_at
+            "posts" => Post::latest()->get()
+            // "posts" => Post::all()
         ]);
     }
 

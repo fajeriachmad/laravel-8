@@ -130,4 +130,8 @@
         <p class="text-center fs-4">Belum ada postingan.</p>
     @endif
 
+    <div class="d-flex justify-content-center">
+        {{ $posts->links() }}
+    </div>
+
 @endsection

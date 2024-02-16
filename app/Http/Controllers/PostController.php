@@ -35,7 +35,7 @@ class PostController extends Controller
             // 'posts' => $posts->get()
 
             // add search variable to get search parameter from the "view" page
-            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->get()
+            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(4)->withQueryString()
         ]);
     }
 

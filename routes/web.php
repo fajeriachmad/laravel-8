@@ -70,4 +70,6 @@ Route::get('/categories', function () {
 // Route::get('/authors/{author:username}', [PostController::class, 'showByAuthor']);
 
 Route::get('/login', [LoginController::class, 'index']);
+
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);

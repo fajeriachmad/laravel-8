@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +57,7 @@ Route::get('/categories', function () {
 });
 
 // single category route
-Route::get('/categories/{category:slug}', [PostController::class, 'showByCategory']);
+// Route::get('/categories/{category:slug}', [PostController::class, 'showByCategory']);
 // Route::get('/categories/{category:slug}', function (Category $category) {
 //     return view('category', [
 //         'title' => $category->name,
@@ -68,4 +67,7 @@ Route::get('/categories/{category:slug}', [PostController::class, 'showByCategor
 // });
 
 // single user route
-Route::get('/authors/{author:username}', [PostController::class, 'showByAuthor']);
+// Route::get('/authors/{author:username}', [PostController::class, 'showByAuthor']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);

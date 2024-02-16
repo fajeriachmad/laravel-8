@@ -1,7 +1,7 @@
 {{-- bootstrap navbar --}}
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
 	<div class="container">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="#">E-Store</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 		</button>
@@ -16,6 +16,22 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/posts" data-href="http://e-store.test/posts">Blog</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/categories" data-href="http://e-store.test/categories">Category</a>
+				</li>
+
+				{{-- <li class="nav-item">
+					<a class="nav-link {{ ($active === "home") ? 'active' : ''}}" href="/home">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ ($active === "about") ? 'active' : ''}}" href="/about">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ ($active === "posts") ? 'active' : ''}}" href="/posts">Blog</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link {{ ($active === "categories") ? 'active' : ''}}" href="/categories">Category</a>
+				</li> --}}
 			</ul>
 		</div>
 	</div>

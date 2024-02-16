@@ -33,6 +33,11 @@
 					<a class="nav-link {{ ($active === "categories") ? 'active' : ''}}" href="/categories">Category</a>
 				</li> --}}
 			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a href="/login" data-href="http://e-store.test/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </nav>

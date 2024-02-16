@@ -17,25 +17,28 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
+        Category::factory(5)->create();
+        Post::factory(20)->create();
 
-        User::create([
-            'name' => 'BaBoon',
-            'email' => 'baboon@mail.com',
-            'password' => bcrypt('baboon123')
-        ]);
+        // User::create([
+        //     'name' => 'BaBoon',
+        //     'email' => 'baboon@mail.com',
+        //     'password' => bcrypt('baboon123')
+        // ]);
 
-        Category::create([
-            'name' => 'Programming',
-            'slug' => 'programming'
-        ]);
+        // Category::create([
+        //     'name' => 'Programming',
+        //     'slug' => 'programming'
+        // ]);
 
-        Post::create([
-            'title' => 'Learn Laravel 8',
-            'slug' => 'learn-laravel-8',
-            'category_id' => '1',
-            'user_id' => '1',
-            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae illum dicta molestias consequatur sint provident? Magni nihil perspiciatis earum! Dolor, dicta.',
-            'body' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae illum dicta molestias consequatur sint provident? Magni nihil perspiciatis earum! Dolor, dicta. Voluptas ipsam velit dolor facere expedita provident sapiente, asperiores inventore ab voluptates sequi fugiat?</p><p>Neque sunt praesentium sit minima debitis explicabo, dolores voluptas dolorem labore tenetur iste exercitationem magnam fuga saepe aliquam quo odio impedit temporibus eum consequuntur rerum delectus autem voluptatibus!</p><p>Reiciendis neque debitis exercitationem, explicabo consequuntur perferendis natus eos voluptate cupiditate dolor recusandae non rem perspiciatis minima? Iure velit, autem iusto odio voluptas accusamus eveniet aliquid est deserunt odit tenetur rem et eos doloremque! Odit, voluptate aut!</p>'
-        ]);
+        // Post::create([
+        //     'title' => 'Learn Laravel 8',
+        //     'slug' => 'learn-laravel-8',
+        //     'category_id' => '1',
+        //     'user_id' => '1',
+        //     'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae illum dicta molestias consequatur sint provident? Magni nihil perspiciatis earum! Dolor, dicta.',
+        //     'body' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae illum dicta molestias consequatur sint provident? Magni nihil perspiciatis earum! Dolor, dicta. Voluptas ipsam velit dolor facere expedita provident sapiente, asperiores inventore ab voluptates sequi fugiat?</p><p>Neque sunt praesentium sit minima debitis explicabo, dolores voluptas dolorem labore tenetur iste exercitationem magnam fuga saepe aliquam quo odio impedit temporibus eum consequuntur rerum delectus autem voluptatibus!</p><p>Reiciendis neque debitis exercitationem, explicabo consequuntur perferendis natus eos voluptate cupiditate dolor recusandae non rem perspiciatis minima? Iure velit, autem iusto odio voluptas accusamus eveniet aliquid est deserunt odit tenetur rem et eos doloremque! Odit, voluptate aut!</p>'
+        // ]);
     }
 }

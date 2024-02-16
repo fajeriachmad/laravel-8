@@ -46,6 +46,9 @@ Route::get('/posts', [PostController::class, 'index']);
 // single post route
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
+// form handler
+
+
 // categories route
 Route::get('/categories', function () {
     return view('categories', [

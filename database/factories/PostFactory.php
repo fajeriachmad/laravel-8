@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence(mt_rand(2, 8)),
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->paragraph(),
-            'body' => $this->faker->paragraph(mt_rand(5, 10)),
+            'body' => $this->faker->paragraph(mt_rand(20, 80)),
             'category_id' => mt_rand(1, 5),
             'user_id' => mt_rand(1, 10)
         ];

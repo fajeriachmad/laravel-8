@@ -55,13 +55,14 @@ Route::get('/categories', function () {
 });
 
 // single category route
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('category', [
-        'title' => $category->name,
-        'posts' => $category->posts,
-        'category' => $category->name
-    ]);
-});
+Route::get('/categories/{category:slug}', [PostController::class, 'showByCategory']);
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//     return view('category', [
+//         'title' => $category->name,
+//         'posts' => $category->posts,
+//         'category' => $category->name
+//     ]);
+// });
 
 // single user route
-Route::get('/authors/{author:username}', [AuthorController::class, 'show']);
+Route::get('/authors/{author:username}', [PostController::class, 'showByAuthor']);

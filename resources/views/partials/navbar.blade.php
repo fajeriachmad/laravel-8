@@ -33,10 +33,28 @@
 					<a class="nav-link {{ ($active === "categories") ? 'active' : ''}}" href="/categories">Category</a>
 				</li> --}}
 			</ul>
+
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a href="/login" data-href="http://e-store.test/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
-				</li>
+				@auth
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+							Welcome, {{ auth()->user()->name }}
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> My Profile</a>
+							<div class="dropdown-divider"></div>
+							<form action="/logout" method="POST">
+								@csrf
+								
+								<button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+							</form>
+						</div>
+					</li>
+				@else
+					<li class="nav-item">
+						<a href="/login" data-href="http://e-store.test/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+					</li>
+				@endauth
 			</ul>
 		</div>
 	</div>

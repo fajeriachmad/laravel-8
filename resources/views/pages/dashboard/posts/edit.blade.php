@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="POST" action="/dashboard/posts/{{ $post->slug }}" class="mb-5">
+        <form method="POST" action="/dashboard/posts/{{ $post->slug }}" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
 
@@ -42,6 +42,23 @@
             </div>
 
             <div class="form-group">
+                <label for="image">Post Image</label>
+                @if ($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
+                <div class="custom-file">
+                    <input type="hidden" name="oldImage" value="{{ $post->image }}">
+                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <label class="custom-file-label @error('image') is-invalid @enderror" for="image">Choose file</label>
+                    @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="body">Body</label>
                 @error('body')
                     <p class="text-danger">{{ $message }}</p>
@@ -54,14 +71,4 @@
             <a href="/dashboard/posts" class="btn btn-outline-primary border-3">Back to my posts</a>
         </form>
     </div>
-
-    <script>
-        const TITLE = $('#title');
-        const SLUG = $('#slug');
-        TITLE.on('change', function() {
-            fetch('/dashboard/posts/checkSlug?title=' + TITLE.val())
-                .then(response => response.json())
-                .then(data => SLUG.val(data.slug));
-        });
-    </script>
 @endsection

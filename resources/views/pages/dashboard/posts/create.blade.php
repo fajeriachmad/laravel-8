@@ -42,6 +42,7 @@
 
             <div class="form-group">
                 <label for="image">Post Image</label>
+                <img class="img-preview img-fluid mb-3 col-sm-5">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="image" name="image">
                     <label class="custom-file-label @error('image') is-invalid @enderror" for="image">Choose file</label>
@@ -64,14 +65,4 @@
             <a href="/dashboard/posts" class="btn btn-outline-primary border-3">Back to my posts</a>
         </form>
     </div>
-
-    <script>
-        const TITLE = $('#title');
-        const SLUG = $('#slug');
-        TITLE.on('change', function() {
-            fetch('/dashboard/posts/checkSlug?title=' + TITLE.val())
-                .then(response => response.json())
-                .then(data => SLUG.val(data.slug));
-        });
-    </script>
 @endsection

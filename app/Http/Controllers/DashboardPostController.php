@@ -42,12 +42,19 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->file('image')->store('post-images');
         $validated_data = $request->validate([
             'title' => 'required|min:10|max:255',
             'slug'  => 'required|unique:posts',
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validated_data['image'] = $request->file('image')->store('post-images');
+        }
+
         $validated_data['user_id'] = auth()->user()->id;
         // https://laravel.com/docs/8.x/helpers#strings-method-list
         $validated_data['excerpt'] = Str::limit(strip_tags($request->body), 200);

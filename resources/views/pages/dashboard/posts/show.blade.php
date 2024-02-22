@@ -25,7 +25,14 @@
                     </button>
                 </form>
 
-                <img src="https://source.unsplash.com/1200x400?programming" class="img-fluid mt-3" alt="...">
+                @if ($post->image)
+                    <div class="img-container">
+                        <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid mt-3"
+                            style="width: 1200px; height:400px;" alt="image">
+                    </div>
+                @else
+                    <img src="https://source.unsplash.com/1200x400?programming" class="img-fluid mt-3" alt="...">
+                @endif
 
                 <article class="my-3 fs-5">
                     {!! $post->body !!}

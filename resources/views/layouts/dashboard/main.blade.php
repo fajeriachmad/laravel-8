@@ -15,6 +15,7 @@
 
     {{-- js assets --}}
     <script src="/assets/jquery/jquery.slim.min.js"></script>
+    <script src="/assets/bootstrap/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,6 @@
     </div>
 
     {{-- js dist --}}
-    <script src="/assets/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="/assets/feather/feather.min.js"></script>
     {{-- <script src="/assets/chart/Chart.min.js"></script> --}}
     <script type="text/javascript" src="/assets/trix/trix.js"></script>

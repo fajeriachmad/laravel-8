@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DashboardPostController extends Controller
 {
@@ -41,7 +42,19 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validated_data = $request->validate([
+            'title' => 'required|min:10|max:255',
+            'slug'  => 'required|unique:posts',
+            'category_id' => 'required',
+            'body' => 'required'
+        ]);
+        $validated_data['user_id'] = auth()->user()->id;
+        // https://laravel.com/docs/8.x/helpers#strings-method-list
+        $validated_data['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+        Post::create($validated_data);
+
+        return redirect('/dashboard/posts')->with('success', 'New post has been added!');
     }
 
     /**

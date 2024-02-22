@@ -51,14 +51,19 @@
                             </a>
                         </td>
                         <td>
-                            <a href="" class="badge bg-warning">
+                            <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning">
                                 <span data-feather="edit" class="text-white"></span>
                             </a>
                         </td>
                         <td>
-                            <a href="" class="badge bg-danger">
-                                <span data-feather="trash-2" class="text-white"></span>
-                            </a>
+                            <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                                @method('delete')
+                                @csrf
+
+                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">
+                                    <span data-feather="trash-2" class="text-white"></span>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
